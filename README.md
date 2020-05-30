@@ -13,4 +13,14 @@ Job 6: This job is to check the accuracy of our tweaked code if it satisfies the
 
 Job 7:This job will be a monitoring job. It will keep an eye on running container. If it found the container crashed, it will immediately launch a new container with the same configuration.
 
-
+Let’s Started
+Step-1 Create Dockerfile with tensorflow and keras
+  In RHEL8 first make a directory that will store all the data or the program for our machine learning model.
+    mkdir mlops
+Now the jenkins will automatically copy the files in this folder.
+FROM centos
+RUN RUN yum install python36    -y
+RUN  pip3 install  --upgrade pip
+RUN  pip3 install  tensorflow
+RUN  pip3 install  keras
+CMD [ “python3”,  “/mlops/mycode.py”]
