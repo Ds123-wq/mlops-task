@@ -36,13 +36,13 @@ Now the jenkins will automatically copy the files in this folder.
 ## Job-1 Pull Github Code
   When the developer will commit any code to GitHub , this job will copy that code into the local repository in our system. For this I have used remote trigger and add to post-commit file to keep on checking the remote repository for any changes.
   In jenkins, we 
-  . Source Code Management: provides url of github repository
-  . Execute shell : sudo cp -rvf * /mlops/mycode.py
+  ##### Source Code Management: provides url of github repository
+  ##### Execute shell : sudo cp -rvf * /mlops/mycode.py
   When job -1 is executed by jenkins .It copy the file in mlops dirrectory.
 ## Job-2 Check code and launch CNN environment
   The checkcode.py file is used to check that code belongs to CNN or not.IF the code is belongs to CNN ,then Job-2 launch an OS CNNos by the Dockerfile.
-  . Build Triggers:Build after other projects are built
-  . Execute Shell:
+  ##### Build Triggers:Build after other projects are built
+  ##### Execute Shell:
   if [[ "$(sudo python3 /mlops/checkcode.py)" == "CNN"
 then
 if sudo docker ps -a  | grep CNNos
@@ -60,7 +60,8 @@ Here we mount mlops directory to mlops1 .And launch CNN environment by mlops:v1 
 In the mycode.py code, we are using command line argument to tune the model.After successfully launching the Container, Jenkins will trigger this job. This job will execute the file which pushed by the developer and has the main code to train the model. (mycode.py)
 ## Job-4 : Predict Accuracy
 This is used to check accuracy of the trained model
-accuracy.txt file is used to check accuracy .In jenkin job we write code:
+accuracy.txt file is used to check accuracy .In jenkin job we write in
+##### Execute shell:
 MIN=80
 ACCURACY='sudo cat /root/mlops1/accuracy.txt'
 ACCURACY=${ACCURACY%.*}
