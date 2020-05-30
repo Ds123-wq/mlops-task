@@ -1,0 +1,6 @@
+#!/bin/bash
+echo "commit"
+git push
+echo "Sucessfully upload at github"
+
+curl --user "admin=redhat" http://192.168.99.101:8080//view/mlops/job/job1/build?token=redhat
