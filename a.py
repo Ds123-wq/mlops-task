@@ -1,2 +1,2 @@
 Welcome
-print("Hii")
+print("Hii")print("Welcome")
